@@ -1,4 +1,4 @@
-# Simulator for "Computationally-efficient millimeter-wave back-scattering models"
+# Simulator for "Combination of Millimeter-Wave Blockage and Scattering Models Supporting Multiple-Scattering"
 (c) 2020 Adrián Lahuerta Lavieja and Martin Johansson;  
 e-mail: adrian.lahuerta@kuleuven.be and martin.n.johansson@ericsson.com
 
@@ -10,7 +10,7 @@ The software package is supplied "as is," without any accompanying support servi
 
 The code (or parts of it) may be used for non-profit purposes as long as the copyright notice is included and [A] is credited and cited.
 
-[A] A. Lahuerta-Lavieja, M. Johansson, U. Gustavsson, T. A. H. Bressner, and G. A. E. Vandenbosch, "Computationally-efficient millimeter-wave back-scattering models," to be published in IEEE Trans. Antennas Propag., 2020.
+[A] A. Lahuerta-Lavieja, M. Johansson, U. Gustavsson, T. A. H. Bressner, and G. A. E. Vandenbosch, "Combination of millimeter-wave blockage and scattering models supporting multiple-scattering," submitted to IEEE Trans. Antennas Propag., 2020.
 
 ### How to set up the simulation environment
 
@@ -18,16 +18,20 @@ Download all the scripts and folders you can find in this project as they are ne
 
 ### How to start a simulation
 
-Navigate in Matlab to the directory containing the script TAP_singleScattering.m.
+Navigate in Matlab to the directory containing the scripts TAP_blockageSingleScattering.m and TAP_multipleScattering.m.
 
 Open 
 
 ```sh
-TAP_singleScattering.m
-``` 
-and select a scenario among the five possible options (lines 3 to 7). Scenario numbering coincides with figure numbering in [A]. 
+TAP_blockageSingleScattering.m
+```
+or 
 
-Once you have selected the scenario, you have the freedom to choose which models you would like to simulate (lines 14 to 16). Feel free to modify the predefined _model.List_ options. 
+```sh
+TAP_multipleScattering.m
+``` 
+
+and select a scenario among the two or one possible options, respectively. Scenario numbering coincides with figure numbering in [A]. 
 
 Now, you are ready to simply run the code (F5).
 
