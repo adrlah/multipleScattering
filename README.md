@@ -18,7 +18,7 @@ Download all the scripts and folders you can find in this project as they are ne
 
 ### How to start a simulation
 
-Navigate in Matlab to the directory containing the scripts TAP_blockageSingleScattering.m and TAP_multipleScattering.m.
+Navigate in Matlab to the directory containing the TAP_multipleScattering.m script.
 
 Open
 
