@@ -1,4 +1,4 @@
-# Simulator for "Combination of Millimeter-Wave Blockage and Scattering Models Supporting Multiple-Scattering"
+# Simulator for "Computationally Efficient Millimeter-Wave Backscattering Models: A Multiple-Scattering Model"
 (c) 2020 Adrián Lahuerta Lavieja and Martin Johansson;  
 e-mail: adrian.lahuerta@kuleuven.be and martin.n.johansson@ericsson.com
 
@@ -10,7 +10,7 @@ The software package is supplied "as is," without any accompanying support servi
 
 The code (or parts of it) may be used for non-profit purposes as long as the copyright notice is included and [A] is credited and cited.
 
-[A] A. Lahuerta-Lavieja, M. Johansson, U. Gustavsson, T. A. H. Bressner, and G. A. E. Vandenbosch, "Combination of millimeter-wave blockage and scattering models supporting multiple-scattering," submitted to IEEE Trans. Antennas Propag., 2020.
+[A] A. Lahuerta-Lavieja, M. Johansson, U. Gustavsson, T. A. H. Bressner, and G. A. E. Vandenbosch, "Computationally efficient millimeter-wave backscattering models: A multiple-scattering model," submitted to IEEE Trans. Antennas Propag., 2020.
 
 ### How to set up the simulation environment
 
@@ -20,20 +20,13 @@ Download all the scripts and folders you can find in this project as they are ne
 
 Navigate in Matlab to the directory containing the scripts TAP_blockageSingleScattering.m and TAP_multipleScattering.m.
 
-Open 
-
-```sh
-TAP_blockageSingleScattering.m
-```
-or 
+Open
 
 ```sh
 TAP_multipleScattering.m
 ``` 
 
-and select a scenario among the two or one possible options, respectively. Scenario numbering coincides with figure numbering in [A]. 
-
-Now, you are ready to simply run the code (F5).
+and simply run the code (F5). Scenario numbering coincides with figure numbering in [A]. 
 
 ### Version history
 - Version 0.1: adrian.lahuerta@kuleuven.be - simplified/commented code for GitHub
