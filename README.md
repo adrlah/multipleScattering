@@ -10,7 +10,7 @@ The software package is supplied "as is," without any accompanying support servi
 
 The code (or parts of it) may be used for non-profit purposes as long as the copyright notice is included and [A] is credited and cited.
 
-[A] A. Lahuerta-Lavieja, M. Johansson, U. Gustavsson, T. A. H. Bressner, and G. A. E. Vandenbosch, "Computationally efficient millimeter-wave backscattering models: A multiple-scattering model," submitted to IEEE Trans. Antennas Propag., 2020.
+[A] A. Lahuerta-Lavieja, M. Johansson, U. Gustavsson, and G. A. E. Vandenbosch, "Computationally efficient millimeter-wave backscattering models: A multiple-scattering model," submitted to IEEE Trans. Antennas Propag., 2020.
 
 ### How to set up the simulation environment
 
