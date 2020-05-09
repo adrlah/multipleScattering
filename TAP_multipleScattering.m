@@ -1,6 +1,6 @@
 function TAP_multipleScattering
 %% Scenario for testing multiple-scattering
-scenario.number = 7; % Scenario from the paper Fig. 7
+scenario.number = 3; % Scenario from the paper Fig. 3
 
 %% Print scenario
 fprintf(['\n Scenario ' num2str(scenario.number) ' \n \n'])
@@ -38,7 +38,7 @@ end
 %% Antennas
 function [txSurf0, rxSurf0, scenario] = getAntennas(scenario)
 switch scenario.number
-    case 7
+    case 3
         switch scenario.numberOfSurfaces
             case 0                       % Point antennas along x-axis
                 TxPhiAntToWall = 0;
@@ -94,7 +94,7 @@ nWidth    = 2;
 nHeight   = 2;
 nSamples  = [nWidth nHeight];
 
-% Surfaces in Scenario 7 are generated in for-loops; this surface is only an example
+% Surfaces in Scenario 3 are generated in for-loops; this surface is only an example
 w          = 1;
 h          = 1;
 scattSurf0 = rectangleInXzPlane(nSamples, w, h, scenario.f);
@@ -127,7 +127,7 @@ end
 
 function resolution = getResolution(scenario)
 switch scenario.number
-    case 7 % Rectangle witdth and height
+    case 3 % Rectangle witdth and height
         resolution = 0.01; % [meter]
     otherwise
         resolution = [];
@@ -136,7 +136,7 @@ end
 
 function interval = getInterval(scenario)
 switch scenario.number
-    case 7 % Rectangle witdth and height
+    case 3 % Rectangle witdth and height
         interval = [0.01 2.5];                 % [meter]
     otherwise
         interval = [];
@@ -152,7 +152,7 @@ models.resultsPh = zeros(numel(scenario.sweepVals), 1);
 gammaFresnel = zeros(numel(scenario.sweepVals),1);
 [gammaFresnelSingleReflection, gammaFresnelMulti, modelsTmp, modelsTh, modelsPh] = deal(gammaFresnel);
 
-if scenario.number == 7 && scenario.numberOfSurfaces == 0 % Free space scenario with 180-degree phase offset for comparison
+if scenario.number == 3 && scenario.numberOfSurfaces == 0 % Free space scenario with 180-degree phase offset for comparison
     scenario.rLOS                = norm(scenario.xyzRx0-scenario.xyzTx0);
     gff                          = exp(-1j*scenario.k0*scenario.rLOS)/scenario.rLOS * scenario.lambda/(4*pi);
     [eThTx, ePhTx, eThRx, ePhRx] = getAntennaTowardAntenna(scenario.xyzTx0, scenario.xyzRx0, txSurf0, rxSurf0);
@@ -359,14 +359,16 @@ end
 
 function [scenario, PO, models] = plotResults(scenario, PO, models)
 
+scenario.sweepVals = scenario.sweepVals/scenario.lambda;
+
 % Amplitude plot
 [models.tikzAmp, PO.tikzAmp]     = plotAmplitudResults(scenario, models, PO);
 % Phase plot
 [models.tikzPhase, PO.tikzPhase] = plotPhaseResults(scenario, models, PO);
 
 if scenario.numberOfSurfaces == 3
-models.legend = {'Free space'; 'C - 3D Fresnel'; 'C - PO';...
-    'D - 3D Fresnel'; 'D - PO'; 'E - 3D Fresnel'; 'E - PO'};
+models.legend = {'Free space'; 'A - 3D Fresnel'; 'A - PO';...
+    'B - 3D Fresnel'; 'B - PO'; 'C - 3D Fresnel'; 'C - PO'};
 figure(999);  legend(models.legend, 'Location', 'southeast')
 figure(1000); legend(models.legend, 'Location', 'northeast')
 end
@@ -397,7 +399,7 @@ if PO.available
 else
     POtikzAmp = [];
 end
-getProperAxisLimitsAmplitude()
+getProperAxisLimitsAmplitude(scenario)
 getProperXaxisLabel()
 ylabel('Magnitude (dB)')
 grid on
@@ -445,23 +447,23 @@ if PO.available
 else
     POtikzPhase = [];
 end
-getProperAxisLimitsPhase()
+getProperAxisLimitsPhase(scenario)
 getProperXaxisLabel();
 ylabel('Phase (deg)')
 grid on
 end
 
 function getProperXaxisLabel()
-xlabel('{\it l} (m)')
+xlabel('{\it l} (\lambda)')
 end
 
-function getProperAxisLimitsAmplitude()
-xlim([0 2.5]);
+function getProperAxisLimitsAmplitude(scenario)
+xlim([scenario.sweepVals(1) scenario.sweepVals(end)]);
 ylim([-80 -38]);
 end
 
-function getProperAxisLimitsPhase()
-xlim([0 2.5]);
+function getProperAxisLimitsPhase(scenario)
+xlim([scenario.sweepVals(1) scenario.sweepVals(end)]);
 ylim([50 400]);
 end
 
