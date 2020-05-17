@@ -459,7 +459,7 @@ end
 
 function getProperAxisLimitsAmplitude(scenario)
 xlim([scenario.sweepVals(1) scenario.sweepVals(end)]);
-ylim([-80 -38]);
+ylim([-76 -38]);
 end
 
 function getProperAxisLimitsPhase(scenario)
