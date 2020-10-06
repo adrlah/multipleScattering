@@ -18,15 +18,15 @@ Download all the scripts and folders you can find in this project as they are ne
 
 ### How to start a simulation
 
-Navigate in Matlab to the directory containing the TAP_multipleScattering.m script.
+Navigate in Matlab to the directory containing the TAP_multipleScattering_FigX.m scripts.
 
-Open
+Open any of
 
 ```sh
-TAP_multipleScattering.m
+TAP_multipleScattering_FigX.m
 ``` 
 
-and simply run the code (F5). Scenario numbering coincides with figure numbering in [A]. 
+with X=[3 8] and simply run the code (F5). Script/scenario numbering coincides with figure numbering in [A]. 
 
 ### Version history
 - Version 0.1: adrian.lahuerta@kuleuven.be - simplified/commented code for GitHub
