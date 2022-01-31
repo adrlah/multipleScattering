@@ -1,6 +1,6 @@
 function TAP_multipleScattering_Fig8
 
-% (c) 2020 Adri√°n Lahuerta Lavieja and Martin Johansson;
+% (c) 2020 Adri·n Lahuerta Lavieja and Martin Johansson;
 % e-mail: adrian.lahuerta@kuleuven.be and martin.n.johansson@ericsson.com
 
 % The code (or parts of it) may be used for non-profit purposes as long
@@ -8,9 +8,8 @@ function TAP_multipleScattering_Fig8
 
 % [A] A. Lahuerta-Lavieja, M. Johansson, C. Larsson, U. Gustavsson, and 
 % G. A. E. Vandenbosch, "Computationally efficient millimeter-wave 
-% backscattering models: A multiple-scattering model," to be published in 
-% IEEE Trans. Antennas Propag., 2020.
-
+% backscattering models: A multiple-scattering model," to be published in
+% IEEE Trans. Antennas Propag., 2022.
 
 %% Scenario for testing multiple-scattering with blockage
 scenario.number = 8; % Scenario from Fig. 8 in [A]
@@ -39,7 +38,7 @@ scenario                     = getSweepVariable(scenario);
 PO                           = getPOresults(scenario, PO);
 MoM                          = getMoMresults(scenario, MoM);
 [scenario, models]           = calculateModels(scenario, models, scattSurf0, txSurf0, rxSurf0);
-getErrorMetric(scenario, PO, models);
+getErrorMetric(PO, models);
 plotResults(scenario, PO, MoM, models);
 end
 
@@ -955,7 +954,7 @@ dphi=abs(diff(phi_av));
 dO=(dw(:).*dphi(:))';
 end
 
-function [errorTable, extraError] = getErrorMetric(scenario, y, models)
+function [errorTable, extraError] = getErrorMetric(y, models)
 % y is the PO reference
 % xEst is the estimation
 
@@ -967,7 +966,7 @@ if y.available
     idx = 1:size(y.results,1);
     
     for i = 1:b
-        errorTable(i,1) = 10*log10(NMSE(scenario, y.results(idx), xEst(idx, i)));
+        errorTable(i,1) = 10*log10(NMSE(y.results(idx), xEst(idx, i)));
     end
     metric  = 'poNMSEdB';    
     
@@ -981,13 +980,9 @@ else
 end
 end
 
-function NMSE = NMSE(scenario, x, xEst)
+function NMSE = NMSE(x, xEst)
 idx = find(not(isnan(xEst)));
 x    = x(idx);
 xEst = xEst(idx);
-if scenario.ampErrorOnly
-    x    = abs(x);
-    xEst = abs(xEst);
-end
 NMSE  = sum(abs(x - xEst).^2)/sum(abs(x).^2);
 end
