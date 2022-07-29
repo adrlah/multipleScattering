@@ -29,7 +29,7 @@ TAP_multipleScattering_FigX.m
 with X=[3 8] and simply run the code (F5). Script/scenario numbering coincides with figure numbering in [A]. 
 
 ### Version history
-- Version 0.1: adrian.lahuerta@kuleuven.be - simplified/commented code for GitHub
+- Version 0.1: adrian.lahuerta.lavieja@ericsson.com - simplified/commented code for GitHub
 
 ### Final remark
 
